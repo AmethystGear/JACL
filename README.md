@@ -118,8 +118,10 @@ you can add comments like this:
 they can be multiline too!
 ```
 /* test arc reactor
-on various power settings */
-1 2 3 4 5
+on various power settings 
+I made my list explicit for fun
+in this example */
+[ 1 2 3 4 5 ]
 ```
 
 ## Multiline Strings
