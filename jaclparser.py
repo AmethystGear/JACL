@@ -12,8 +12,9 @@ END_ORDERED_MAP = '}]'
 
 BEGIN_OBJECT = '('
 END_OBJECT = ')'
+OBJECT_TYPE = type('', (), {})
 
-DELIM = '='
+DELIM = ':'
 
 STRING = '"'
 RAW_STRING = 'r"'
@@ -160,7 +161,7 @@ def parse_object(tok, s):
         return None
 
     tok = nextToken(s)
-    obj = type('', (), {})()
+    obj = OBJECT_TYPE()
     key = None
     while tok != END_OBJECT:
         val = parse_next(tok, s)
@@ -212,18 +213,35 @@ def parse_next(tok, s):
     return Identifier(tok)
 
 def parse(file):
-    data = file.read()
+    data = file.read().replace(',', ' ')
     s = Scanner(data)
     tok = nextToken(s)
     
     val = parse_next(tok, s)
-    if not isinstance(val, Identifier):
+    tok = nextToken(s)
+    sc = None
+
+    # these shorten syntax significantly when in early stages.
+    if isinstance(val, Identifier):
+        sc = Scanner("(\n" + data + "\n)")
+    elif isinstance(val, str) and tok == DELIM:
+        sc = Scanner("{\n" + data + "\n}")
+    elif tok is not None:
+        sc = Scanner("[\n" + data + "\n]")
+
+    if sc is None:
         return val
     else:
-        s = Scanner("(\n" + data + "\n)")
-        tok = nextToken(s)
-        return parse_next(tok, s)
+        tok = nextToken(sc)
+        return parse_next(tok, sc)
+
+def print_data(data):
+    if isinstance(data, OBJECT_TYPE):
+        print(vars(data))
+    else:
+        print(data)
 
 with open("test.jacl", 'r') as f:
     data = parse(f)
-    print(vars(data))
+    print_data(data)
+    
