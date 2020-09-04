@@ -61,8 +61,8 @@ class Empty:
         pass
 
 def nextToken(s):
-    s.scan(r'\s+')
-    return s.scan(r'\S+')
+    s.scan(r'[\s,]+')
+    return s.scan(r'[^\s,]+')
 
 def parse_bool(tok):
     if tok == "true" or tok == "false":
@@ -220,7 +220,7 @@ def parse_next(tok, s):
     return Identifier(tok)
 
 def parse(file):
-    data = file.read().replace(',', ' ')
+    data = file.read()
     s = Scanner(data)
     tok = nextToken(s)
     
