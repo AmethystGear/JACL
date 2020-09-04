@@ -76,16 +76,16 @@ hashmaps with objects inside of them!
 etc.
 
 we also have an extra collection, the Ordered Hashmap. This is handy when you want to iterate over a hashmap in the same order thats in your file.
-You can use it just like a regular hashmap, but with `[{` and `}]` replacing `{` and `}`.
+You can use it just like a regular hashmap, but with `({` and `})` replacing `{` and `}`.
 ```
-gamemodes : [{
+gamemodes : ({
   "pvp" : (
     ...fields...
   )
   "pve" : (
     ...fields...
   )
-}]
+})
 ```
 boom! ordered hashmap.
 
