@@ -4,7 +4,7 @@ data : [{
     "have" : 483
     "cool" : 82
     r"
-    multiline
+    \"multiline\"
     strings
-    and" : " \"escape\" \" \"sequences \\"
+    and\\" : " \"escape\" \" \"sequences \\"
 }]
