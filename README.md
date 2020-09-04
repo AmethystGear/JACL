@@ -29,10 +29,10 @@ but what if I want to name my data? Well, there are two ways you can go about th
 ## I'm lazy and just want a Hashmap damn it/the JSON way
 ```
 {
-  "I'm" = "lazy"
-  "and" = "just"
-  "want" = "a"
-  "Hashmap" = "damn"
+  "I'm" : "lazy"
+  "and" : "just"
+  "want" : "a"
+  "Hashmap" : "damn"
   .
   .
 }
@@ -43,3 +43,24 @@ address = "..."
 name = "John Doe"
 ```
 Notice in the first case, your strings can be anything, but in the second, they have to be valid variable names. This is done so that we can have easy mappings from .jacl files to structs/objects.
+
+So far, we've been dealing with pretty flat examples. But you can nest stuff any way you like. Behold:
+```
+[ [ "hello" ] [ "world" ] ]
+```
+an array of arrays!
+```
+gamemodes : {
+  "pvp" : (
+    ...fields...
+  )
+  "pve" : (
+    ...fields...
+  )
+}
+```
+hashmaps with objects inside of them!
+
+etc.
+
+One other cool thing. JACL is a superset of JSON. Which means, you can convert `.json` to `.jacl` by just renaming the file, and then boom! You get all the benefits. Of course, this doesn't work the other way around, but don't tell me you *want* to go back to using JSON as your config file... 
