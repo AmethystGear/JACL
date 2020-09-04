@@ -20,14 +20,17 @@ Let's start with the most basic config file possible:
 ```
 0
 ```
+-- this would be the integer 0
 In JACL, any primitive or collection sitting alone in a file is 100% ok. That means i can do:
 ```
 "hello world"
 ```
+-- this would be the string "hello world"
 or
 ```
 1 2 3 4 5
 ```
+-- this would be a list containing 1, 2, 3, 4, and 5
 but what if I want to name my data? Well, there are two ways you can go about this.
 ## I'm lazy and just want a Hashmap damn it/the JSON way
 ```
