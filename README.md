@@ -36,6 +36,8 @@ or
 
 Note the lack of commas. That's right, you won't be needing commas anymore. JSON trailing comma errors begone!
 
+(this isn't to say that you *can't* have commas, JACL is a superset of JSON, so commas are allowed. JACL simply doesn't *require* commas like JSON, so you don't have to use them if you don't want to.)
+
 
 But what if I want to name my data? Well, there are two ways you can go about this.
 ## I'm lazy and just want a Hashmap damn it/the JSON way
