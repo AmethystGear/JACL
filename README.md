@@ -26,7 +26,7 @@ In JACL, any primitive or collection sitting alone in a file is 100% ok. That me
 ```
 or
 ```
-[ 1 2 3 4 5 ]
+1 2 3 4 5
 ```
 but what if I want to name my data? Well, there are two ways you can go about this.
 ## I'm lazy and just want a Hashmap damn it/the JSON way
