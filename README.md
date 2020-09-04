@@ -14,19 +14,30 @@ and many more!
 Yeah, you could use YAML or XML, but those have their own problems. JSON syntax feels like it's 80% of the way to a config format. So why not make something that borrows from JSON syntax, but fixes a lot of the problems?
 
 Enter JACL. JACL is a superset of JSON that fixes most of JSON's problems (for configs)! Since it's a strict superset, you can plug your JSON right into JACL. We wont mind!
+
+## Hello JACL
 Let's start with the most basic config file possible:
 ```
 0
 ```
+-- this would be the integer 0
+
 In JACL, any primitive or collection sitting alone in a file is 100% ok. That means i can do:
 ```
 "hello world"
 ```
+-- this would be the string "hello world"
+
 or
 ```
-[ 1 2 3 4 5 ]
+1 2 3 4 5
 ```
-but what if I want to name my data? Well, there are two ways you can go about this.
+-- this would be a list containing 1, 2, 3, 4, and 5
+
+Note the lack of commas. That's right, you won't be needing commas anymore. JSON trailing comma errors begone!
+
+
+But what if I want to name my data? Well, there are two ways you can go about this.
 ## I'm lazy and just want a Hashmap damn it/the JSON way
 ```
 "I'm" : "lazy"
@@ -100,3 +111,27 @@ and
 "name" : "john"
 ```
 is equivalent to `{ "name" : "john" }`
+
+## Comments
+you can add comments like this:
+```
+/* test arc reactor on various power settings */
+1 2 3 4 5
+```
+they can be multiline too!
+```
+/* test arc reactor
+on various power settings 
+I made my list explicit for fun
+in this example */
+[ 1 2 3 4 5 ]
+```
+
+## Multiline Strings
+```
+r"I am a
+very cool
+multiline
+string"
+```
+note that they keep whitespace, including newline characters.
