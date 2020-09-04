@@ -102,3 +102,25 @@ and
 "name" : "john"
 ```
 is equivalent to `{ "name" : "john" }`
+
+## Comments
+you can add comments like this:
+```
+/* test arc reactor on various power settings */
+1 2 3 4 5
+```
+they can be multiline too!
+```
+/* test arc reactor
+on various power settings */
+1 2 3 4 5
+```
+
+## Multiline Strings
+```
+r"I am a
+very cool
+multiline
+string"
+```
+note that they keep whitespace, including newline characters.
