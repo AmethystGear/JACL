@@ -18,7 +18,10 @@ DELIM = ':'
 
 STRING = '"'
 RAW_STRING = 'r"'
-ESCAPEABLE_QUOTE_REGEX = r'(["\'])(?:(?=(\\?))\2.)*?\1'
+
+# taken from https://stackoverflow.com/questions/249791/regex-for-quoted-string-with-escaping-quotes
+# Marc-André Poulin's answer.
+ESCAPEABLE_QUOTE_REGEX = r'"(?:[^"\\]*(?:\\.)?)*"'
 
 BEGIN_COMMENT = '/*'
 END_COMMENT = '*/'
@@ -79,6 +82,10 @@ def parse_float(tok):
     except ValueError:
         return None
 
+
+def replace_escapes(s):
+    return s.replace('\\\"', '\"').replace('\\\\', '\\')
+
 def parse_string(tok, s):
     if tok[0] == STRING:
         s.undo()
@@ -88,11 +95,11 @@ def parse_string(tok, s):
             nextToken(s)
             raise ValueError('broken string!')
         else:
-            return match.replace('\\\"', '\"')[1:-1]
+            return replace_escapes(match)[1:-1]
     elif len(tok) >= 2 and tok[0:2] == RAW_STRING:
         s.undo()
         s.scan(r'r')
-        return s.scan(ESCAPEABLE_QUOTE_REGEX).replace('\\\"', '\"')[1:-1]
+        return replace_escapes(s.scan(ESCAPEABLE_QUOTE_REGEX))[1:-1]
     
     return None
 
