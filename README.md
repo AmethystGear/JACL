@@ -14,6 +14,8 @@ and many more!
 Yeah, you could use YAML or XML, but those have their own problems. JSON syntax feels like it's 80% of the way to a config format. So why not make something that borrows from JSON syntax, but fixes a lot of the problems?
 
 Enter JACL. JACL is a superset of JSON that fixes most of JSON's problems (for configs)! Since it's a strict superset, you can plug your JSON right into JACL. We wont mind!
+
+## Hello JACL
 Let's start with the most basic config file possible:
 ```
 0
