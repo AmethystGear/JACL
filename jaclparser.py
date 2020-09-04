@@ -7,14 +7,20 @@ END_ARRAY = ']'
 BEGIN_MAP = '{'
 END_MAP = '}'
 
-BEGIN_ORDERED_MAP = '[{'
-END_ORDERED_MAP = '}]'
+BEGIN_ORDERED_MAP = '({'
+END_ORDERED_MAP = '})'
 
 BEGIN_OBJECT = '('
 END_OBJECT = ')'
 OBJECT_TYPE = type('', (), {})
 
 DELIM = ':'
+
+# always try to match '({' and '})' before '(' \ ')' and '{' \ '}'
+# otherwise, an ordered map will appear to be an object containing a
+# map, which would lead to an error.
+BREAK_TOKENS = ['\(\{', '\}\)', '\[', '\]', 
+                '\{', '\}', '\(', '\)', DELIM]
 
 STRING = '"'
 RAW_STRING = 'r"'
@@ -62,6 +68,10 @@ class Empty:
 
 def nextToken(s):
     s.scan(r'[\s,]+')
+    for tok in BREAK_TOKENS:
+        val = s.scan(tok)
+        if val:
+            return val
     return s.scan(r'[^\s,]+')
 
 def parse_bool(tok):
@@ -248,7 +258,10 @@ def print_data(data):
     else:
         print(data)
 
-with open("test.jacl", 'r') as f:
-    data = parse(f)
-    print_data(data)
+test_files = ['tests/test.jacl', 'tests/json_test.jacl']
+for f in test_files:
+    with open(f, 'r') as jacl:
+        print('testing ' + f)
+        data = parse(jacl)
+        print_data(data)
     

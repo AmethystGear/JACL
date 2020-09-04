@@ -1,5 +1,5 @@
 port : 31415
-data : [{
+data : ({
     "we" : 537
     "have" : 483
     "cool" : 82
@@ -8,6 +8,6 @@ data : [{
     strings
     and\\" : " \"escape\" \" \"sequences \\"
 /*
-}] this should be ignored
+}) this should be ignored
 */
-}]
+})
