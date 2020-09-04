@@ -1,6 +1,10 @@
 port : 31415
-data = [{
-    "hello" : 537
-    "there" : 483
-    "my" : 82
+data : [{
+    "we" : 537
+    "have" : 483
+    "cool" : 82
+    r"
+    multiline
+    strings
+    and" : " \"escape\" \" \"sequences \\"
 }]
