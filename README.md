@@ -8,6 +8,7 @@ For some reason, lots of people love using JSON as a configuration format. Which
 2. everything needs to be a hashmap (with string keys... ew)
 3. no trailing commas (sucks when you're trying to hand roll it out)
 4. Can I get an ordered hashmap? No? Ok, thanks.
+
 and many more!
 
 Yeah, you could use YAML or XML, but those have their own problems. JSON syntax feels like it's 80% of the way to a config format. So why not make something that borrows from JSON syntax, but fixes a lot of the problems?
