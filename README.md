@@ -41,3 +41,4 @@ but what if I want to name my data? Well, there are two ways you can go about th
 address = "..."
 name = "John Doe"
 ```
+Notice in the first case, your strings can be anything, but in the second, they have to be valid variable names. This is done so that we can have easy mappings from .jacl files to structs/objects.
