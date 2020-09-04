@@ -13,7 +13,8 @@ and many more!
 
 Yeah, you could use YAML or XML, but those have their own problems. JSON syntax feels like it's 80% of the way to a config format. So why not make something that borrows from JSON syntax, but fixes a lot of the problems?
 
-Enter JACL. Let's start with the most basic config file possible:
+Enter JACL. JACL is a superset of JSON that fixes most of JSON's problems (for configs)! Since it's a strict superset, you can plug your JSON right into JACL. We wont mind!
+Let's start with the most basic config file possible:
 ```
 0
 ```
@@ -74,5 +75,3 @@ gamemodes : [{
 }]
 ```
 boom! ordered hashmap.
-
-One other cool thing. JACL is a superset of JSON. Which means, you can convert `.json` to `.jacl` by just renaming the file, and then voila! You get all the benefits. Of course, this doesn't work the other way around, but don't tell me you *want* to go back to using JSON as your config file... 
