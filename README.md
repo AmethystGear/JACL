@@ -45,7 +45,9 @@ Notice in the first case, your strings can be anything, but in the second, they 
 
 So far, we've been dealing with pretty flat examples. But you can nest stuff any way you like. Behold:
 ```
-[ [ "hello" ] [ "world" ] ]
+[ "hello" "world!" ":)" ]
+[ "bye bye" "world!" "See you tommorrow!" ]
+[ "beep" "boop" ]
 ```
 an array of arrays!
 ```
@@ -75,3 +77,26 @@ gamemodes : [{
 }]
 ```
 boom! ordered hashmap.
+
+Notice that sometimes we omit the `(` `)` or the `{` `}` or the `[` `]` for objects, hashmaps, and arrays respectively. This is done on purpose. As long as your data consists of a single object/map/list of objects, you do not need to explictly use the `(`/`[`/`{` notation.
+i.e.
+```
+"red"
+"yellow"
+"green"
+"blue"
+1
+2
+3
+4
+```
+is equivalent to `[ "red" "yellow" "green" "blue" 1 2 3 4 ]`
+```
+name : "john"
+```
+is equivalent to `( name : "john" )`
+and
+```
+"name" : "john"
+```
+is equivalent to `{ "name" : "john" }`
