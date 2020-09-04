@@ -33,9 +33,11 @@ or
 1 2 3 4 5
 ```
 -- this would be a list containing 1, 2, 3, 4, and 5
+
 Note the lack of commas. That's right, you won't be needing commas anymore. JSON trailing comma errors begone!
 
-but what if I want to name my data? Well, there are two ways you can go about this.
+
+But what if I want to name my data? Well, there are two ways you can go about this.
 ## I'm lazy and just want a Hashmap damn it/the JSON way
 ```
 "I'm" : "lazy"
