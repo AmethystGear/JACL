@@ -63,4 +63,18 @@ hashmaps with objects inside of them!
 
 etc.
 
-One other cool thing. JACL is a superset of JSON. Which means, you can convert `.json` to `.jacl` by just renaming the file, and then boom! You get all the benefits. Of course, this doesn't work the other way around, but don't tell me you *want* to go back to using JSON as your config file... 
+we also have an extra collection, the Ordered Hashmap. This is handy when you want to iterate over a hashmap in the same order thats in your file.
+You can use it just like a regular hashmap, but with `[{` and `}]` replacing `{` and `}`.
+```
+gamemodes : [{
+  "pvp" : (
+    ...fields...
+  )
+  "pve" : (
+    ...fields...
+  )
+}]
+```
+boom! ordered hashmap.
+
+One other cool thing. JACL is a superset of JSON. Which means, you can convert `.json` to `.jacl` by just renaming the file, and then voila! You get all the benefits. Of course, this doesn't work the other way around, but don't tell me you *want* to go back to using JSON as your config file... 
