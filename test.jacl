@@ -1,6 +1,6 @@
-port = 31415
+port : 31415
 data = [{
-    "hello" = 537
-    "there" = 483
-    "my" = 82
+    "hello" : 537
+    "there" : 483
+    "my" : 82
 }]
