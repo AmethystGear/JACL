@@ -7,9 +7,9 @@ Basically what the title says, more or less.
 
 For some reason, lots of people love using JSON as a configuration format. Which sucks. For a number of reasons, including:
 1. No comments in JSON (Seriously, you'd think this would need to be the only one on the list.)
-2. everything needs to be a hashmap (with string keys... ew)
-3. no trailing commas (sucks when you're trying to hand roll it out)
-4. Can I get an ordered hashmap? No? Ok, thanks.
+2. Everything needs to be a hashmap (with string keys... ew)
+3. No trailing commas (sucks when you're trying to hand roll it out)
+4. No multiline strings
 
 and many more!
 
@@ -89,20 +89,6 @@ gamemodes : {
 hashmaps with objects inside of them!
 
 etc.
-
-we also have an extra collection, the Ordered Hashmap. This is handy when you want to iterate over a hashmap in the same order thats in your file.
-You can use it just like a regular hashmap, but with `({` and `})` replacing `{` and `}`.
-```
-gamemodes : ({
-  "pvp" : (
-    ...fields...
-  )
-  "pve" : (
-    ...fields...
-  )
-})
-```
-boom! ordered hashmap.
 
 Notice that sometimes we omit the `(` `)` or the `{` `}` or the `[` `]` for objects, hashmaps, and arrays respectively. This is done on purpose. As long as your data consists of a single object/map/list of objects, you do not need to explictly use the `(`/`[`/`{` notation.
 i.e.
