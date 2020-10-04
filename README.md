@@ -116,7 +116,7 @@ is equivalent to `{ "name" : "john" }`
 ## Comments
 you can add comments like this:
 ```
-/* test arc reactor on various power settings */
+// test arc reactor on various power settings
 1 2 3 4 5
 ```
 they can be multiline too!
@@ -130,7 +130,7 @@ in this example */
 
 ## Multiline Strings
 ```
-r"I am a
+"I am a
 very cool
 multiline
 string"
